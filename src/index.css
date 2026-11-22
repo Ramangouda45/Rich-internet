@@ -1,0 +1,366 @@
+/* ==========================================================================
+   CelebrationCraft - Sky Blue & White Luxury Design System
+   ========================================================================== */
+
+:root {
+  --font-main: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+
+  /* Sky Blue & White Mixed Luxury Palette */
+  --bg-primary: #F0F9FF;                 /* Luminous sky background */
+  --bg-secondary: #E0F2FE;               /* Soft sky blue */
+  --bg-card: rgba(255, 255, 255, 0.94);  /* Crisp frosted pure white */
+  --bg-card-hover: #FFFFFF;
+  --bg-input: #FFFFFF;
+
+  /* Sky Blue Tonal Palette */
+  --sky-50: #F0F9FF;
+  --sky-100: #E0F2FE;
+  --sky-200: #BAE6FD;
+  --sky-300: #7DD3FC;
+  --sky-400: #38BDF8;
+  --sky-500: #0EA5E9;   /* Main bright sky blue */
+  --sky-600: #0284C7;   /* Deep sky blue */
+  --sky-700: #0369A1;
+  --sky-800: #075985;
+  --sky-900: #0C4A6E;
+
+  /* Aliased color variables mapped to Sky Blue & White for seamless component styling */
+  --gold-50: #F0F9FF;
+  --gold-100: #E0F2FE;
+  --gold-200: #BAE6FD;
+  --gold-300: #0284C7;   /* Vibrant primary sky text/accent */
+  --gold-400: #0EA5E9;   /* Bright radiant sky blue */
+  --gold-500: #0284C7;
+  --gold-600: #0369A1;
+
+  --rose-500: #38BDF8;
+  --rose-600: #0284C7;
+  --purple-500: #0EA5E9;
+  --purple-600: #0369A1;
+  --emerald-500: #0284C7;
+
+  /* Crisp Typography Colors on Sky/White */
+  --text-main: #0C4A6E;    /* Deep sky navy for sharp readability */
+  --text-h: #082F49;       /* Regal deep midnight sky for headings */
+  --text-muted: #64748B;   /* Elegant slate for descriptions */
+  --text-light: #334155;   /* Balanced charcoal navy */
+  --text-accent: #0284C7;  /* Brilliant Sky Blue */
+
+  /* Borders & Shadows */
+  --border-light: rgba(186, 230, 253, 0.75);
+  --border-gold: rgba(14, 165, 233, 0.35);
+  --border-gold-glow: rgba(14, 165, 233, 0.6);
+  --border-sky: rgba(56, 189, 248, 0.45);
+
+  --shadow-sm: 0 2px 8px rgba(14, 165, 233, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 24px rgba(14, 165, 233, 0.12), 0 2px 6px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 16px 40px rgba(14, 165, 233, 0.16), 0 4px 12px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 0 25px rgba(56, 189, 248, 0.28);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  --transition-fast: 0.18s ease;
+  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: #F8FAFC;
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: 
+    radial-gradient(ellipse 90% 60% at 50% -10%, rgba(186, 230, 253, 0.75), transparent 70%),
+    radial-gradient(ellipse 60% 50% at 95% 45%, rgba(224, 242, 254, 0.7), transparent),
+    radial-gradient(ellipse 60% 50% at 5% 75%, rgba(186, 230, 253, 0.55), transparent),
+    linear-gradient(180deg, #F0F9FF 0%, #FFFFFF 35%, #F0F9FF 70%, #E0F2FE 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-h);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Sky Blue & Azure Text Gradients */
+.text-gradient-gold,
+.text-gradient-sky {
+  background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 55%, #38BDF8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-rose {
+  background: linear-gradient(135deg, #0369A1 0%, #0284C7 50%, #38BDF8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Layout Container */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Glassmorphism Card Utility (White + Sky Blue border) */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.glass-card:hover {
+  border-color: #38BDF8;
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0284C7 0%, #0EA5E9 100%);
+  color: #FFFFFF;
+  font-weight: 700;
+  box-shadow: 0 4px 18px rgba(14, 165, 233, 0.35);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0369A1 0%, #0284C7 100%);
+  box-shadow: 0 6px 24px rgba(14, 165, 233, 0.5);
+  transform: translateY(-2px);
+  color: #FFFFFF;
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.95);
+  color: #0284C7;
+  border: 1.5px solid rgba(14, 165, 233, 0.45);
+  box-shadow: 0 2px 8px rgba(14, 165, 233, 0.08);
+}
+
+.btn-outline:hover {
+  background: #F0F9FF;
+  border-color: #0EA5E9;
+  color: #0369A1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.18);
+}
+
+.btn-rose {
+  background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 18px rgba(14, 165, 233, 0.35);
+}
+
+.btn-rose:hover {
+  background: linear-gradient(135deg, #38BDF8 0%, #0EA5E9 100%);
+  box-shadow: 0 6px 24px rgba(14, 165, 233, 0.5);
+  transform: translateY(-2px);
+  color: #FFFFFF;
+}
+
+.btn-sm {
+  padding: 0.5rem 1.1rem;
+  font-size: 0.85rem;
+}
+
+.btn-lg {
+  padding: 0.95rem 2.2rem;
+  font-size: 1.05rem;
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.badge-gold,
+.badge-sky {
+  background: rgba(224, 242, 254, 0.9);
+  color: #0284C7;
+  border: 1px solid rgba(56, 189, 248, 0.5);
+}
+
+.badge-rose {
+  background: rgba(240, 249, 255, 0.9);
+  color: #0369A1;
+  border: 1px solid rgba(14, 165, 233, 0.4);
+}
+
+.badge-purple {
+  background: rgba(224, 242, 254, 0.9);
+  color: #0284C7;
+  border: 1px solid rgba(125, 211, 252, 0.5);
+}
+
+.badge-emerald {
+  background: rgba(240, 249, 255, 0.95);
+  color: #075985;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+/* Form Controls */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  text-align: left;
+}
+
+.form-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius-md);
+  background: #FFFFFF;
+  border: 1.5px solid rgba(186, 230, 253, 0.9);
+  color: #0C4A6E;
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  transition: all var(--transition-smooth);
+  outline: none;
+  box-shadow: 0 2px 6px rgba(14, 165, 233, 0.04);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #94A3B8;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: #0EA5E9;
+  box-shadow: 0 0 0 3.5px rgba(14, 165, 233, 0.2);
+  background: #FFFFFF;
+}
+
+.form-input.input-error,
+.form-select.input-error,
+.form-textarea.input-error {
+  border-color: #EF4444;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.25);
+}
+
+.error-message {
+  font-size: 0.8rem;
+  color: #DC2626;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+
+.form-hint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Subtle Floating Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 32px rgba(14, 165, 233, 0.45);
+  }
+}
+
+@keyframes floatSoft {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-glow {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+.animate-float {
+  animation: floatSoft 5s infinite ease-in-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
